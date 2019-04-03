@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ktube/blocs/favorite_bloc.dart';
 import 'package:ktube/blocs/videos_bloc.dart';
 import 'package:ktube/screens/ktube.dart';
+import 'package:ktube/animation/sprite_painter.dart';
 
 
 void main() {
@@ -19,9 +20,11 @@ class MyApp extends StatelessWidget {
       child: BlocProvider(
         bloc: FavoriteBloc(),
           child: MaterialApp(
-            title: 'KidsTube',
+            title: 'Kideoos',
             debugShowCheckedModeBanner: false,
             home: KTube(),
+
+
           ),
       )
     );

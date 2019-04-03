@@ -12,6 +12,8 @@ class FavoriteBloc implements BlocBase {
   Map<String, Video> _favorites = {};
 
   final _favController = BehaviorSubject<Map<String, Video>>(seedValue: {});
+
+
   Stream<Map<String, Video>> get outFav => _favController.stream;
 
   FavoriteBloc(){
@@ -22,8 +24,10 @@ class FavoriteBloc implements BlocBase {
         }).cast<String, Video>();
 
         _favController.add(_favorites);
+
       }
     });
+
   }
 
   void toggleFavorite(Video video){
@@ -45,5 +49,6 @@ class FavoriteBloc implements BlocBase {
   void dispose() {
     _favController.close();
   }
+
 
 }

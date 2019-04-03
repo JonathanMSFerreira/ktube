@@ -54,11 +54,13 @@ class DataSearch extends SearchDelegate<String> {
               itemBuilder: (context, index){
                 return ListTile(
                   title: Text(snapshot.data[index]),
-                  leading: Icon(Icons.play_arrow),
+                  leading: Icon(Icons.play_circle_filled),
                   onTap: (){
                     close(context, snapshot.data[index]);
                   },
+
                 );
+
               },
               itemCount: snapshot.data.length,
             );
@@ -78,7 +80,7 @@ class DataSearch extends SearchDelegate<String> {
         return v[0];
       }).toList();
     } else {
-      throw Exception("Failed to load suggestions");
+      throw Exception("Falha ao carrega lista de favoritos");
     }
 
   }

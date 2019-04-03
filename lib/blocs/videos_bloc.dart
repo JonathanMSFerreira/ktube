@@ -9,10 +9,14 @@ class VideosBloc implements BlocBase {
 
   List<Video> videos;
 
-  final StreamController<List<Video>> _videosController = StreamController<List<Video>>();
+  final StreamController<List<Video>> _videosController = StreamController<List<Video>>.broadcast();
+
+
   Stream get outVideos => _videosController.stream;
 
-  final StreamController<String> _searchController = StreamController<String>();
+
+  final StreamController<String> _searchController = StreamController<String>.broadcast();
+
   Sink get inSearch => _searchController.sink;
 
   VideosBloc(){
@@ -35,6 +39,14 @@ class VideosBloc implements BlocBase {
   void dispose() {
     _videosController.close();
     _searchController.close();
+  }
+
+
+  length(){
+
+    return videos.length;
+
+
   }
 
 }
